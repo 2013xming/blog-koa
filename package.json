@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.0.12"
+  },
+  "scripts": {
+    "start": "npm run ./server/app.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "koa": "^2.3.0",
+    "koa-ejs": "^4.1.0",
+    "koa-static-cache": "^5.1.1"
+  },
+  "staticPath": ""
+}
