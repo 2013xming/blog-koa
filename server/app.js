@@ -17,4 +17,5 @@ app.use(router);
 app.use(function* () {
 	yield this.render('404',{layout:false});
 });
-app.listen(3000);
+
+module.exports = app;
