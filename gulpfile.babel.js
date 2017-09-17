@@ -3,6 +3,7 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import path from 'path';
 import unlify from 'gulp-uglify';
 import del from 'del';
+import runSequence from 'run-sequence';
 
 const glp = gulpLoadPlugins();
 const NODE_ENV = process.env.NODE_ENV;
@@ -35,8 +36,8 @@ gulp.task('js', ()=> {
 });
 // 启动server
 gulp.task('server', () => {
-  $.nodemon({
-    script: './bin/development.js',
+  glp.nodemon({
+    script: './bin/admin/development.js',
     ext: 'html,js,tpl',
     ignore: ['client/', 'utils/'],
     watch: ['routes/', 'server/', 'bin/', 'tools/', 'views/', 'controllers/']

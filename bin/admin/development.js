@@ -2,7 +2,7 @@
 /**
  * Module dependencies.
  */
-var app = require('../server/app');
+var app = require('../../server/app');
 var debug = require('debug')('sohustock:server');
 var http = require('http');
 
@@ -11,19 +11,18 @@ var http = require('http');
  */
 
 var port = normalizePort(process.env.PORT || '6000');
-app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(app.callback());
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(7000);
 server.on('error', onError);
 server.on('listening', onListening);
 

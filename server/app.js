@@ -5,13 +5,13 @@ var router = require(path.join(__dirname,'router'));
 var render = require('koa-ejs');
 var app = new koa();
 
-render(app{
-	root:path.join(__dirname,'views'),
+render(app,{
+	root:path.join(__dirname,'../views'),
 	layout:'index',
 	viewExt:'html',
-	cache:true,
+	cache:false,
 	debug:true
-})
+});
 app.use(koaStaticCache(path.join(__dirname, 'public'),{prefix:'/public',gzip:true}));
 app.use(router);
 app.use(function* () {
