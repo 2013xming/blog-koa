@@ -14,17 +14,19 @@
     "build:prod": "better-npm-run build:prod",
     "run:prod": "better-npm-run run:prod"
   },
-  "betterScripts":{
-    "build:dev":{
-      "command":"set Debug=koa* & gulp dev",
-      "env":{
-        "NODE_ENV":"development",
-        "PORT":5000,
-        "ENV":"test"
+  "betterScripts": {
+    "build:dev": {
+      "command": "set Debug=koa* & gulp dev",
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": 5000,
+        "ENV": "test"
       }
     }
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "better-npm-run": "^0.1.0",
     "gulp": "^3.9.1",
     "gulp-if": "^2.0.2",
@@ -34,6 +36,12 @@
     "koa": "^2.3.0",
     "koa-ejs": "^4.1.0",
     "koa-static-cache": "^5.1.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ]
   },
   "staticPath": ""
 }

@@ -33,3 +33,24 @@ gulp.task('js', ()=> {
   return webpack(webpackConfig)
     .pipe(gulp.dest(paths.dist.dev));
 });
+// 启动server
+gulp.task('server', () => {
+  $.nodemon({
+    script: './bin/development.js',
+    ext: 'html,js,tpl',
+    ignore: ['client/', 'utils/'],
+    watch: ['routes/', 'server/', 'bin/', 'tools/', 'views/', 'controllers/']
+  });
+});
+
+//开发环境下，启动server调试
+gulp.task('dev',()=>{
+	runSequence(
+			['clean','server']
+		);
+});
+
+// 默认执行开发环境打包命令
+gulp.task('default',['dev'],(cb) => {
+	cb();
+});
