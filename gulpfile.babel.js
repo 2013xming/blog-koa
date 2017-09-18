@@ -4,6 +4,7 @@ import path from 'path';
 import unlify from 'gulp-uglify';
 import del from 'del';
 import runSequence from 'run-sequence';
+import webpack from 'webpack-stream';
 
 const glp = gulpLoadPlugins();
 const NODE_ENV = process.env.NODE_ENV;
@@ -32,7 +33,8 @@ gulp.task('js', ()=> {
     : require('./webpack/webpack.config.prod.babel.js');
 
   return webpack(webpackConfig)
-    .pipe(gulp.dest(paths.dist.dev));
+    .pipe(gulp.dest(paths.dist.dev))
+    .pipe(gulp.dest('./public/'));
 });
 // 启动server
 gulp.task('server', () => {
@@ -47,7 +49,7 @@ gulp.task('server', () => {
 //开发环境下，启动server调试
 gulp.task('dev',()=>{
 	runSequence(
-			['clean','server']
+			['clean','js','server']
 		);
 });
 

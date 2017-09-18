@@ -39,7 +39,8 @@
     "koa-ejs": "^4.1.0",
     "koa-router": "^7.2.1",
     "koa-static-cache": "^5.1.1",
-    "run-sequence": "^2.1.0"
+    "run-sequence": "^2.1.0",
+    "webpack-stream": "^4.0.0"
   },
   "babel": {
     "presets": [
