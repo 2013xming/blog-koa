@@ -3,7 +3,8 @@ var Router = require('koa-router');
 var router = new Router();
 
 
-router.get('/',function*(next){
-	yield this.render('404',{layout:false});
+router.get('/',async (ctx,next)=>{  
+	console.log(0);
+	await ctx.render('index',{layout:false,staticPath:'./build'});
 });
-exports = module.exports= router.routes();
+exports = module.exports= router;
