@@ -5,7 +5,7 @@ import unlify from 'gulp-uglify';
 import del from 'del';
 import runSequence from 'run-sequence';
 import webpack from 'webpack-stream';
-
+import named from 'vinyl-named';
 const glp = gulpLoadPlugins();
 const NODE_ENV = process.env.NODE_ENV;
 
@@ -32,7 +32,9 @@ gulp.task('js', ()=> {
     ? require('./webpack/webpack.config.dev.babel.js')
     : require('./webpack/webpack.config.prod.babel.js');
 
-  return webpack(webpackConfig)
+  return gulp.src('./src/admin/App.js')
+  	.pipe(named())
+    .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(paths.dist.dev))
     .pipe(gulp.dest('./public/'));
 });

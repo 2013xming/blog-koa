@@ -5,6 +5,6 @@ var router = new Router();
 
 router.get('/',async (ctx,next)=>{  
 	console.log(0);
-	await ctx.render('index',{layout:false,staticPath:'./build'});
+	await ctx.render('index',{layout:false,staticPath:'/public'});
 });
 exports = module.exports= router;

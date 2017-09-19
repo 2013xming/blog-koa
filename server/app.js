@@ -15,11 +15,7 @@ render(app,{
 	debug:true
 });
 
-/*router.get('/dad',async (ctx,next)=>{  
-	console.log(0);
-	await ctx.render('index',{layout:false,staticPath:'./build'});
-}); */ 
-app.use(koaStaticCache(path.join(__dirname, 'public'),{prefix:'/public',gzip:true}));
+app.use(koaStaticCache(path.join(__dirname, 'public')));
 app.use(router.routes());
 app.use(function* () {
 	console.log(1);
