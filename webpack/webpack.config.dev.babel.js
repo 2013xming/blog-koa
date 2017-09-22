@@ -3,6 +3,11 @@ import path from 'path';
 import fs from 'fs';
 
 module.exports = {
+	entry:path.join(__dirname,'../src/App.js'),
+	output:{
+		path: path.join(__dirname,'../public/'),
+  		filename: '[name].bundle.min.js',
+	},
 	module:{
 		loaders:[
 			{

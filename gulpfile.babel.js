@@ -31,12 +31,14 @@ gulp.task('js', ()=> {
   let webpackConfig = isDev
     ? require('./webpack/webpack.config.dev.babel.js')
     : require('./webpack/webpack.config.prod.babel.js');
-
-  return gulp.src('./src/admin/App.js')
+    return webpack(webpackConfig)
+    .pipe(gulp.dest(paths.dist.dev))
+    .pipe(gulp.dest('./public/'));
+/*  return gulp.src('./src/admin/App.js')
   	.pipe(named())
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(paths.dist.dev))
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest('./public/'));*/
 });
 // 启动server
 gulp.task('server', () => {
